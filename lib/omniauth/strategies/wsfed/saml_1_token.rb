@@ -7,6 +7,7 @@ module OmniAuth
 
         def initialize(document)
           @document = document
+          puts "------------------------------", document.inspect, "------------------------------"
         end
 
         def audience
