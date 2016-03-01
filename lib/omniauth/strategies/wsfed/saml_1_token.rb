@@ -15,13 +15,12 @@ module OmniAuth
         end
 
         def issuer
-          issuer = REXML::XPath.first(document, '//saml:Assertion').attributes['Issuer']
-          puts "------------------------------", issuer.inspect, "------------------------------"
-          issuer
+          REXML::XPath.first(document, '//saml:Assertion').attributes['Issuer']
         end
 
         def claims
           stmt_element = REXML::XPath.first(document, '//saml:Assertion/saml:AttributeStatement')
+          puts "------------------------------", stmt_element.inspect, "------------------------------"
 
           return {} if stmt_element.nil?
 
