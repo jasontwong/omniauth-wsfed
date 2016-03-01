@@ -15,7 +15,9 @@ module OmniAuth
         end
 
         def issuer
-          REXML::XPath.first(document, '//saml:Assertion').attributes['Issuer']
+          issuer = REXML::XPath.first(document, '//saml:Assertion').attributes['Issuer']
+          puts "------------------------------", issuer.inspect, "------------------------------"
+          issuer
         end
 
         def claims
