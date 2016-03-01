@@ -25,6 +25,7 @@ module OmniAuth
         # TODO: remove reference to SignedDocument (document) and move it to validation
         # use response variable instead...
         def document
+          puts "----------------------", raw_callback.inspect, "--------------------"
           @document ||= OmniAuth::Strategies::WSFed::XMLSecurity::SignedDocument.new(raw_callback, settings)
         end
 
